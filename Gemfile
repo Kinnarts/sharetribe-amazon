@@ -65,7 +65,7 @@ gem 'rake'
 gem 'xpath'
 gem 'dynamic_form'
 gem "truncate_html"
-gem 'money-rails'
+gem 'money-rails', '1.4.1'
 gem 'mercury-rails'
 gem 'fb-channel-file'
 gem 'country_select', '> 1.2.0'
@@ -87,6 +87,11 @@ gem 'lograge'
 
 group :staging, :production do
   gem 'newrelic_rpm', '~> 3.9.1.236'
+  # needed for capistrano - delayed job
+  gem 'daemons'
+  # needed for precompiling assets
+  gem 'therubyracer'
+  gem 'execjs'
 end
 
 group :development, :test do
@@ -108,6 +113,10 @@ group :development do
   gem 'i18n-tasks', '~> 0.6.2'
   gem 'quiet_assets'
   gem 'better_errors'
+  gem 'capistrano', '~> 3.1.0'
+  gem 'capistrano-bundler', '~> 1.1.2'
+  gem 'capistrano-rails', '~> 1.1.1'
+  gem 'capistrano-rvm', github: "capistrano/rvm"
 end
 
 group :test do
